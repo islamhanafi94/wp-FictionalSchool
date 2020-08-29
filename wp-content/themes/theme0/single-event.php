@@ -25,6 +25,19 @@
             <?php the_content(); ?>
         </div>
 
+        <?php $related_programs = get_field('related_programs')?>
+        <?php if($related_programs):?>
+            <h2>Related Programs</h2>
+            <ul>
+            <?php foreach ($related_programs as $program):?>
+                <li>
+                <a href="<?php echo get_the_permalink($program)?>">
+                    <?php echo get_the_title($program)?>
+                </a>
+                </li>
+            <?php endforeach;?>
+            </ul>
+        <?php endif;?>
     </div>
 
 <?php endwhile?>
